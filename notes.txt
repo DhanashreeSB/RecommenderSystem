@@ -1,0 +1,50 @@
+1.Create django project:
+Go in virtual environment:
+$source bin/activate
+(trydjango)$django-admin startproject project1 . (Inside /home/dhanashree/Dev/trydjango/src)
+
+----------------------------------------------------------------------------------------------
+
+1.To create app inside src :
+Do following in root of the django project(where manage.py is present)
+(inside /home/dhanashree/Dev/trydjango/src)
+$python manage.py startapp products
+$python manage.py startapp carts
+(products app should only contain products related thing and not cart related things...apps are to have a focused project)
+
+------------------------------------------------------------------------------------------------
+1. To enter into interactive session inside project :
+
+Enter following command inside root of django project(where manage.py reside)...
+Here root of django project is : /home/dhanashree/MyFolder/Dev/trydjango/src
+
+$python manage.py shell
+
+~~Absolute import below as there is relative import(see in text editor in admin.py):
+>>>from products.models import Product
+
+==BUILT IN DJANGO COMMAND(shows number of products in database) :
+>>>Product.objects.all()
+
+Creating new product from the shell :
+>>>Product.objects.create(title = 'new product 2', description = 'another one', price = '19234' ,summary ='sweet')
+
+Do above command multiple times which will create multiple products
+
+Now runserver again using
+$python manage.py runserver
+go to : http://127.0.0.1:8000/admin
+--------------------------------------------------------------------------------------
+
+When you delete db.sqlite3 database then you will need to create new superuser as :
+
+$python manage.py createsuperuser
+(provide user and password for new user)
+
+---------------------------------------------------------------------------------------
+
+TUTORIAL-23:
+Django model Forms
+
+1.Create file inside products app
+products > create new file > forms.py
